@@ -34,6 +34,21 @@ describe Account do
 
   end
 
+  context "statement printing" do
+
+    it "prints statement header" do
+      header = "date       ||  credit  ||  debit  ||  balance  "
+      expect(account.print_statement).to include header
+    end
+
+    it "prints statement rows" do
+      account.deposit(2000)
+      row = "date       ||   2000   ||         ||     2000  "
+      expect(account.print_statement).to include row
+    end
+
+  end
+
 
 
 end
