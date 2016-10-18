@@ -9,14 +9,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transactions << {deposit:amount, balance:balance}
-    balance
+    @transactions << Transaction.new("deposit", amount, balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transactions << {withdrawal:amount, balance:balance}
-    balance
+    @transactions << Transaction.new("withdrawal", amount, balance)
   end
 
   def print_statement
